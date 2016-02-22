@@ -57,6 +57,7 @@ client/
       storage.service.js
     my-project.js
     routes.js
+server/
 </pre>
 </div>
 ```

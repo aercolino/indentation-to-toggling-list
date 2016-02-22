@@ -1,0 +1,16 @@
+ol.Directory {
+  line-height: normal;
+}
+ol.Directory li
+{
+  list-style: none;
+}
+ol.Directory li label
+{
+  color:navy;
+}
+ol.Directory li label.ToggleOnClick
+{
+  cursor: pointer;
+  font-weight: 600;
+}

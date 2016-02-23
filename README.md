@@ -75,12 +75,13 @@ where
 - `directory` is a post 1 custom field with this code
 ```php
 list( $indentedText, $pathsToExpand ) = $arguments;
-$pre = '<pre style="padding: 20px;">' . htmlspecialchars($indentedText) . '</pre>';
+$pre = '<pre>' . htmlspecialchars($indentedText) . '</pre>';
 if (! is_null($pathsToExpand)) {
-  $json = json_encode($pathsToExpand);
-  $expand = "data-expand='$json'";
+  $json = json_encode($pathsToExpand);          // JS expects a JSON array
+  $json = htmlspecialchars($json, ENT_QUOTES);  // escape single and double quotes to make sure 
+  $expand = "data-expand='$json'";              // that $expand interpolation works as expected
 }
-$div = "<div class='IndentationToTogglingList' $expand>$pre</div>";
+$div = "<div class='IndentationToTogglingList' $expand style='border-left: 4px solid #f26b00;'>$pre</div>";
 return $div;
 ```
 
